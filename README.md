@@ -20,13 +20,13 @@ This project is a Donor, Patient, Hospital, and Staff Management System develope
 - Supports basic CRUD (Create, Read, Update, Delete) operations through forms.
 
 ## Prerequisites:
-! Python 3.12.7
-! Flask 2.0.1 (Prefer)
-! MySQL Workbench
-! MySQL Server (Database)
-! MySQL Connector for Python
-! Install MySQL Connector: pip install mysql-connector-python
-! Bootstrap 5 (for front-end design)
+- Python 3.12.7
+- Flask 2.0.1 (Prefer)
+- MySQL Workbench
+- MySQL Server (Database)
+- MySQL Connector for Python
+- Install MySQL Connector: pip install mysql-connector-python
+- Bootstrap 5 (for front-end design)
 
 ## DONE BY: 
 Ashna, Aditya, Rishabh, Harshil, Pratosh
