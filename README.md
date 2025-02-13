@@ -28,7 +28,6 @@ This project is a Donor, Patient, Hospital, and Staff Management System develope
 - Install MySQL Connector: pip install mysql-connector-python
 - Bootstrap 5 (for front-end design)
 
-### DONE BY: 
-Ashna, Aditya, Rishabh, Harshil, Pratosh
+
 
 
