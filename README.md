@@ -16,6 +16,7 @@ This project is a Donor, Patient, Hospital, and Staff Management System develope
 - Staff Members: Allows registering staff members responsible for managing donors, patients, and hospitals.
 
 ### Data Persistence:
+- Install MySQL in your device.
 - Uses MySQL to store donor, patient, hospital, and staff data.
 - Supports basic CRUD (Create, Read, Update, Delete) operations through forms.
 
