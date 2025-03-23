@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block title %}Patient Registration{% endblock %}
+
+{% block content %}
+<h2>Register New Patient</h2>
+<form method="POST" action="/patients">
+    <div class="form-group">
+        <label for="p-fname">First Name</label>
+        <input type="text" id="p-fname" name="p-fname" required>
+    </div>
+    <div class="form-group">
+        <label for="p-lname">Last Name</label>
+        <input type="text" id="p-lname" name="p-lname" required>
+    </div>
+    <div class="form-group">
+        <label for="p-sex">Sex</label>
+        <select id="p-sex" name="p-sex" required>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="p-dob">Date of Birth</label>
+        <input type="date" id="p-dob" name="p-dob" required>
+    </div>
+    <div class="form-group">
+        <label for="p-blood">Blood Group</label>
+        <select id="p-blood" name="p-blood" required>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="p-hla">HLA Type</label>
+        <input type="text" id="p-hla" name="p-hla" required>
+    </div>
+    <div class="form-group">
+        <label for="p-phone">Phone Number</label>
+        <input type="tel" id="p-phone" name="p-phone" required>
+    </div>
+    <div class="form-group">
+        <label for="p-city">City ID</label>
+        <input type="number" id="p-city" name="p-city">
+    </div>
+    <div class="form-group">
+        <label for="p-region">Recording Staff ID</label>
+        <input type="number" id="p-region" name="p-region">
+    </div>
+    <div class="form-group">
+        <button type="submit">Register Patient</button>
+    </div>
+</form>
+
+<hr>
+
+<!-- Filter and Sort Section -->
+<h3>Filter and Sort Patients</h3>
+<form method="GET" action="/patients">
+    <div>
+        <label for="filter_bg">Blood Group:</label>
+        <select id="filter_bg" name="filter_bg">
+            <option value="">All</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+        </select>
+        <div>
+        <label for="filter_hla">HLA Type:</label>
+        <input type="text" id="filter_hla" name="filter_hla">
+        <div>
+        <label for="sort_by">Sort By:</label>
+        <select id="sort_by" name="sort_by">
+            <option value="P_Id">Patient ID</option>
+            <option value="Fname">First Name</option>
+            <option value="Age">Age</option>
+            <option value="B_group">Blood Group</option>
+        </select>
+        <div>
+        <label for="sort_order">Order:</label>
+        <select id="sort_order" name="sort_order">
+            <option value="ASC">Ascending</option>
+            <option value="DESC">Descending</option>
+        </select>
+        <div>
+        <button type="submit">Apply Filters</button>
+    </div>
+</form>
+
+<hr>
+
+<!-- Display Filtered and Sorted Results -->
+<h3>Patient List</h3>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Patient ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Sex</th>
+            <th>Age</th>
+            <th>Blood Group</th>
+            <th>HLA</th>
+            <th>City ID</th>
+            <th>Region ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if patients %}
+            {% for patient in patients %}
+            <tr>
+                <td>{{ patient[0] }}</td>
+                <td>{{ patient[1] }}</td>
+                <td>{{ patient[2] }}</td>
+                <td>{{ patient[3] }}</td>
+                <td>{{ patient[5] }}</td>
+                <td>{{ patient[6] }}</td>
+                <td>{{ patient[8] }}</td>
+                <td>{{ patient[9] }}</td>
+                <td>{{ patient[10] }}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="9">No patients found.</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+{% endblock %}

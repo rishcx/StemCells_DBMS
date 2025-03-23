@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Staff Registration{% endblock %}
+
+{% block content %}
+<h2>Register New Staff Member</h2>
+<form method="POST" action="/staff">
+    <div class="form-group">
+        <label for="r-name">Staff Name</label>
+        <input type="text" id="r-name" name="r-name" required>
+    </div>
+    <div class="form-group">
+        <label for="r-phone">Phone Number</label>
+        <input type="tel" id="r-phone" name="r-phone" required>
+    </div>
+    <div class="form-group">
+        <button type="submit">Register Staff</button>
+    </div>
+</form>
+
+<hr>
+{% endblock %}

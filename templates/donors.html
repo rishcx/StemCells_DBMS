@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %}Donor Registration{% endblock %}
+
+{% block content %}
+<h2>Register New Donor</h2>
+<form method="POST" action="/donors">
+    <div class="form-group">
+        <label for="d-fname">First Name</label>
+        <input type="text" id="d-fname" name="d-fname" required>
+    </div>
+    <div class="form-group">
+        <label for="d-lname">Last Name</label>
+        <input type="text" id="d-lname" name="d-lname" required>
+    </div>
+    <div class="form-group">
+        <label for="d-sex">Sex</label>
+        <select id="d-sex" name="d-sex" required>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="d-dob">Date of Birth</label>
+        <input type="date" id="d-dob" name="d-dob" required>
+    </div>
+    <div class="form-group">
+        <label for="d-blood">Blood Group</label>
+        <select id="d-blood" name="d-blood" required>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="d-hla">HLA Type</label>
+        <input type="text" id="d-hla" name="d-hla" required>
+    </div>
+    <div class="form-group">
+        <label for="d-city">City ID:</label>
+        <input type="text" id="d-city" name="d-city" required>
+    </div>
+    <div class="form-group">
+        <label for="d-phone">Phone Number</label>
+        <input type="tel" id="d-phone" name="d-phone" required>
+    </div>
+    <div class="form-group">
+        <button type="submit">Register Donor</button>
+    </div>
+</form>
+
+<!-- Filter and Sort Section -->
+<hr>
+<h3>Filter and Sort Donors</h3>
+<form method="GET" action="/donors">
+    <div>
+        <label for="filter_bg">Blood Group:</label>
+        <select id="filter_bg" name="filter_bg">
+            <option value="">All</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+        </select>
+        <div>
+        <label for="filter_hla">HLA Type:</label>
+        <input type="text" id="filter_hla" name="filter_hla">
+        <div>
+        <label for="sort_by">Sort By:</label>
+        <select id="sort_by" name="sort_by">
+            <option value="D_Id">Donor ID</option>
+            <option value="Fname">First Name</option>
+            <option value="Age">Age</option>
+            <option value="B_group">Blood Group</option>
+        </select>
+        <div>
+        <label for="sort_order">Order:</label>
+        <select id="sort_order" name="sort_order">
+            <option value="ASC">Ascending</option>
+            <option value="DESC">Descending</option>
+        </select>
+        <button type="submit">Apply Filters</button>
+    </div>
+</form>
+
+<!-- Display Filtered and Sorted Results -->
+<hr>
+<h3>Donor List</h3>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Donor ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Sex</th>
+            <th>Age</th>
+            <th>Blood Group</th>
+            <th>HLA</th>
+            <th>City ID</th>
+            <th>Region ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if donors %}
+            {% for donor in donors %}
+            <tr>
+                <td>{{ donor[0] }}</td>
+                <td>{{ donor[1] }}</td>
+                <td>{{ donor[2] }}</td>
+                <td>{{ donor[3] }}</td>
+                <td>{{ donor[5] }}</td>
+                <td>{{ donor[6] }}</td>
+                <td>{{ donor[8] }}</td>
+                <td>{{ donor[9] }}</td>
+                <td>{{ donor[10] }}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="9">No donors found.</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+{% endblock %}

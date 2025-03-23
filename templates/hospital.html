@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Hospital Registration{% endblock %}
+
+{% block content %}
+<h2>Register New Hospital</h2>
+<form method="POST" action="/hospitals">
+    <div class="form-group">
+        <label for="h-name">Hospital Name</label>
+        <input type="text" id="h-name" name="h-name" required>
+    </div>
+    <div class="form-group">
+        <label for="h-phone">Hospital Phone Number</label>
+        <input type="tel" id="h-phone" name="h-phone" required>
+    </div>
+    <div class="form-group">
+        <label for="h-city">City ID</label>
+        <input type="number" id="h-city" name="h-city" required>
+    </div>
+    <div class="form-group">
+        <label for="h-manager">Manager ID</label>
+        <input type="number" id="h-manager" name="h-manager" required>
+    </div>
+    <div class="form-group">
+        <button type="submit">Register Hospital</button>
+    </div>
+</form>
+
+<hr>
+{% endblock %}
